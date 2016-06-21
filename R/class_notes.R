@@ -1,9 +1,10 @@
 
 #' Class notes format (PDF)
 #'
-#' @inheritParams pdf_document
+#' @inheritParams rmarkdown::pdf_document
 #'
 #' @import rmarkdown
+#' @import knitr
 #' @export
 class_notes <- function(fig_width = 10,
                           fig_height = 2.5,
