@@ -1,0 +1,26 @@
+---
+title: "MTH 220"
+author: "Ben Baumer"
+date: "July 22, 2015"
+output:
+  sds::class_notes
+---
+
+## Agenda
+
+- Questionnaire
+- Introduction and syllabus
+- Is Yawning Contagious?
+- HW #1 due next Monday (2/2): 1.1, 1.4, 1.8, 1.15, 1.16, 1.19
+
+### Activity: Is Yawning Contagious?
+
+It is commonly believed that yawning is contagious. According to the Wikipedia:
+
+> Yawning in adults occurs most often immediately before and after sleep, during tedious activities and as a result of its contagiousness, and is commonly associated with tiredness, stress, overwork, lack of stimulation and boredom, though studies show it may be linked to the cooling of the brain. In humans, yawning is often triggered by others yawning (e.g., seeing a person yawning, talking to someone on the phone who is yawning) and is a typical example of positive feedback. This "infectious" yawning has also been observed in chimpanzees, dogs, and can occur across species.
+
+
+There is even psychological literature on the subject:
+- Anderson, James R.; Meno, Pauline (2003). "Psychological Influences on Yawning in Children". Current psychology letters 2 (11).
+
+We'll use \R.
