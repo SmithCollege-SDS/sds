@@ -1,2 +1,4 @@
-# sds
-templates and things for SDS
+sds
+================
+
+R package providing R Markdown templates for SDS

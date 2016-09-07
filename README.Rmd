@@ -1,0 +1,8 @@
+---
+title: "sds"
+output:
+  github_document:
+    html_preview: true
+---
+
+R package providing R Markdown templates for SDS
