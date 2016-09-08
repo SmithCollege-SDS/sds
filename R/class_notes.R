@@ -2,10 +2,12 @@
 #' Class notes format (PDF)
 #'
 #' @inheritParams rmarkdown::pdf_document
-#'
 #' @import rmarkdown
 #' @import knitr
 #' @export
+#' @examples
+#' class_notes()
+#'
 class_notes <- function(fig_width = 10,
                           fig_height = 2.5,
                           fig_crop = TRUE,
@@ -20,11 +22,8 @@ class_notes <- function(fig_width = 10,
   if (identical(highlight, "default"))
     highlight <- "pygments"
 
-  # get the tufte handlout template
-  template <-  system.file(
-    "rmarkdown/templates/class_notes/resources/class_notes.tex",
-    package = "sds"
-  )
+  # get the template
+  template <-  system.file("rmarkdown", "templates", "class_notes/resources/class_notes.tex", package = "sds")
 
   # call the base pdf_document format with the appropriate options
   format <- rmarkdown::pdf_document(fig_width = fig_width,

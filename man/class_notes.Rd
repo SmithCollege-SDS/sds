@@ -36,4 +36,8 @@ additional details.}
 \description{
 Class notes format (PDF)
 }
+\examples{
+class_notes()
+
+}
 
