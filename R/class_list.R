@@ -16,7 +16,7 @@
 #' }
 
 class_list <- function(xls) {
-  lapply(xls, classlist_one) %>%
+  lapply(xls, class_list_one) %>%
     dplyr::bind_rows()
 }
 
