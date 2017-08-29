@@ -5,6 +5,7 @@
 #' @importFrom rvest html_table
 #' @importFrom magrittr extract2 %>%
 #' @importFrom dplyr filter mutate bind_rows
+#' @importFrom tibble repair_names
 #'
 #' @examples
 #' \dontrun{
@@ -25,9 +26,19 @@ class_list_one <- function(xls) {
     stop("Can't find that file!")
   }
   # Note that the XLS files exported from BannerWeb are not actually Excel files!
-  xml2::read_html(xls) %>%
+  # They are malformed HTML tables!
+  out <- xml2::read_html(xls) %>%
     rvest::html_table(fill = TRUE, header = TRUE) %>%
     magrittr::extract2(1) %>%
+    repair_names() %>%
+    dplyr::rename_("Student" = ~`Student Name*`) %>%
     dplyr::filter_(~!is.na(ID)) %>%
     dplyr::mutate_(Class = ~as.character(Class))
+
+  if (ncol(out) == 11) {
+    # shift columns for concentrations
+    names(out)[9:11] <- names(out)[8:10]
+    names(out[7] <- "concentration")
+  }
+  return(out)
 }
