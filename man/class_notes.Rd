@@ -40,4 +40,3 @@ Class notes format (PDF)
 class_notes()
 
 }
-

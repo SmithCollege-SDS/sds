@@ -21,4 +21,3 @@ dim(my_list)
 write.csv(my_list, file = "my_class.csv", row.names = FALSE)
 }
 }
-
