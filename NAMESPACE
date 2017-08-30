@@ -2,6 +2,7 @@
 
 export(class_list)
 export(class_notes)
+export(letter)
 import(knitr)
 import(rmarkdown)
 importFrom(dplyr,bind_rows)
