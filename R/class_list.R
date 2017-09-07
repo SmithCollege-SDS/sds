@@ -38,7 +38,7 @@ class_list_one <- function(xls) {
   if (ncol(out) == 11) {
     # shift columns for concentrations
     names(out)[9:11] <- names(out)[8:10]
-    names(out[7] <- "concentration")
+    names(out)[7:8] <- c("Major2", "concentration")
   }
   return(out)
 }
