@@ -14,8 +14,8 @@ Combine class BannerWeb class lists into one
 }
 \examples{
 \dontrun{
-docs <- c("~/Dropbox/sds220-f16/student_info/ClassList_20218.xls",
-          "~/Dropbox/sds220-f16/student_info/ClassList_20902.xls")
+dir <- "~/Dropbox/SDS/students/enrollments/bannerweb_exports"
+docs <- list.files(dir, pattern = "291", full.names = TRUE)
 my_list <- class_list(docs)
 dim(my_list)
 write.csv(my_list, file = "my_class.csv", row.names = FALSE)
