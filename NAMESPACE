@@ -2,7 +2,9 @@
 
 export(class_list)
 export(class_notes)
+export(hex_logo)
 export(letter)
+export(memo)
 import(knitr)
 import(rmarkdown)
 importFrom(dplyr,bind_rows)

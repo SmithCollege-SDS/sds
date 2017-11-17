@@ -7,15 +7,32 @@ output:
 
 R package providing R Markdown templates for SDS
 
+## Install
+
 ```{r, eval=FALSE}
 # install.packages("devtools")
 devtools::install_github("SmithCollege-SDS/sds")
-library(sds)
+```
 
+## Load
+
+```{r}
+library(sds)
+```
+
+## Get class list
+
+```{r, eval=FALSE}
 # download class list from BannerWeb
 docs <- c("~/Dropbox/git/sds192/student_info/ClassList_10672.xls") %>%
   class_list() %>%
   glimpse()
+```
+
+## Print hex logo!
+
+```{r, fig.height = 5, fig.width = 5}
+hex_logo()
 ```
 
 Post any bugs to Issues!
