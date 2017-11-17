@@ -35,6 +35,6 @@ Print hex logo!
 hex_logo()
 ```
 
-![](README_files/figure-markdown_github/unnamed-chunk-4-1.png)
+![](README_files/figure-markdown_github/hex-logo-1.png)
 
 Post any bugs to Issues!

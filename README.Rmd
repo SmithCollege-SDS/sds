@@ -31,7 +31,7 @@ docs <- c("~/Dropbox/git/sds192/student_info/ClassList_10672.xls") %>%
 
 ## Print hex logo!
 
-```{r, fig.height = 5, fig.width = 5}
+```{r hex-logo, fig.height = 5, fig.width = 5}
 hex_logo()
 ```
 
