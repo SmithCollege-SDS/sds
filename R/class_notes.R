@@ -87,22 +87,64 @@ class_notes <- function(fig_width = 10,
 #' letter()
 #'
 letter <- function(fig_width = 10,
-                        fig_height = 2.5,
-                        fig_crop = TRUE,
-                        dev = 'pdf',
-                        highlight = "default",
-                        keep_tex = FALSE,
-                        includes = NULL,
-                        md_extensions = NULL,
-                        pandoc_args = NULL) {
+                   fig_height = 2.5,
+                   fig_crop = TRUE,
+                   dev = 'pdf',
+                   highlight = "default",
+                   keep_tex = FALSE,
+                   includes = NULL,
+                   md_extensions = NULL,
+                   pandoc_args = NULL) {
+
+  # get the template
+  template <-  system.file("rmarkdown", "templates", "letter/resources/template.tex", package = "sds")
+  letterhead <-  system.file("rmarkdown", "templates", "letter/resources/stationery.pdf", package = "sds")
+  signature <-  system.file("rmarkdown", "templates", "letter/resources/signature.pdf", package = "sds")
+  pandoc_args <- paste0(pandoc_args,
+                        "--variable=", "letterhead:", letterhead)
+
+  # call the base pdf_document format with the appropriate options
+  rmarkdown::pdf_document(fig_width = fig_width,
+                          fig_height = fig_height,
+                          fig_crop = fig_crop,
+                          dev = dev,
+                          highlight = highlight,
+                          template = template,
+                          keep_tex = keep_tex,
+                          latex_engine = "pdflatex",
+                          includes = includes,
+                          md_extensions = md_extensions,
+                          pandoc_args = pandoc_args)
+}
+
+
+
+#' Smith memo stationery (PDF)
+#'
+#' @inheritParams rmarkdown::pdf_document
+#' @import rmarkdown
+#' @import knitr
+#' @export
+#' @examples
+#' letter()
+#'
+memo <- function(fig_width = 10,
+                   fig_height = 2.5,
+                   fig_crop = TRUE,
+                   dev = 'pdf',
+                   highlight = "default",
+                   keep_tex = FALSE,
+                   includes = NULL,
+                   md_extensions = NULL,
+                   pandoc_args = NULL) {
 
   # resolve default highlight
   if (identical(highlight, "default"))
     highlight <- "pygments"
 
   # get the template
-  template <-  system.file("rmarkdown", "templates", "letter/resources/template.tex", package = "sds")
-  letterhead <-  system.file("rmarkdown", "templates", "letter/resources/letterhead.pdf", package = "sds")
+  template <-  system.file("rmarkdown", "templates", "memo/resources/template.tex", package = "sds")
+  letterhead <-  system.file("rmarkdown", "templates", "memo/resources/memoform.pdf", package = "sds")
 
   # call the base pdf_document format with the appropriate options
   format <- rmarkdown::pdf_document(fig_width = fig_width,
@@ -154,4 +196,3 @@ letter <- function(fig_width = 10,
   format$knitr <- knitr_options
   format
 }
-

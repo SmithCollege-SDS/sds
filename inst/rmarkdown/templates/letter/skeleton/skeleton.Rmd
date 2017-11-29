@@ -1,48 +1,36 @@
 ---
 author:
-  - name: FirstName LastName
-    affiliation: Smith College
-    address: >
-      First line
-      Second line
-    email: \email{name@company.com}
-    url: http://rstudio.com
-  - name: Second Author
-    affiliation: Affiliation
-title:
-  formatted: "A Capitalized Title: Something about a Package \\pkg{foo}"
-  # If you use tex in the formatted title, also supply version without
-  plain:     "A Capitalized Title: Something about a Package foo"
-  # For running headers, if needed
-  short:     "\\pkg{foo}: A Capitalized Title"
-abstract: >
-  The abstract of the article.
-keywords:
-  # at least one keyword must be supplied
-  formatted: [keywords, not capitalized, "\\proglang{Java}"]
-  plain:     [keywords, not capitalized, Java]
-preamble: >
-  \usepackage{amsmath}
+- Aaron Wolen
+- Your Organization
+opening: To whom it may concern,
+closing: Sincerely,
+date: 12 December 2020
+address: 
+- 123 Street Rd
+- Chicago, IL
+cc:
+- Recipient 1
+- Recipient 2
+encl:
+- Enclosure 1
+- Enclosure 2
+ps: |
+  PS Lorem ipsum dolor sit amet, *consectetur* adipiscing elit.
+fontfamily: mathpazo
+fontsize: 12pt
+geometry: margin=1in
+blockquote: true
+# signature: /home/bbaumer/Dropbox/git/sds/inst/rmarkdown/templates/letter/resources/signature.pdf
+signature-before: -8ex
+signature-after: 0ex
+closing-indentation: 0pt
+links-as-notes: true
+colorlinks: true
 output: sds::letter
 ---
 
-# Introduction
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin mollis dolor vitae tristique eleifend. Quisque non ipsum sit amet velit malesuada consectetur. Praesent vel facilisis leo. Sed facilisis varius orci, ut aliquam lorem malesuada in. Morbi nec purus at nisi fringilla varius non ut dui. Pellentesque bibendum sapien velit. Nulla purus justo, congue eget enim a, elementum sollicitudin eros. Cras porta augue ligula, vel adipiscing odio ullamcorper eu. In tincidunt nisi sit amet tincidunt tincidunt. Maecenas elementum neque eget dolor [egestas fringilla](http://example.com):
 
-This template demonstrates some of the basic latex you'll need to know to create a JSS article.
+> Nullam eget dapibus quam, sit amet sagittis magna. Nam tincidunt, orci ac imperdiet ultricies, neque metus ultrices quam, id gravida augue lacus ac leo. 
 
-## Code formatting
-
-Don't use markdown, instead use the more precise latex commands:
-
-* \proglang{Java}
-* \pkg{plyr}
-* \code{print("abc")}
-
-# R code
-
-Can be inserted in regular R markdown blocks.
-
-```{r}
-x <- 1:10
-x
-```
+Vestibulum id sodales lectus, sed scelerisque quam. Nullam auctor mi et feugiat commodo. Duis interdum imperdiet nulla, vitae bibendum eros placerat non. Cras ornare, risus in faucibus malesuada, libero sem fringilla quam, ut luctus enim sapien eget dolor.
