@@ -37,4 +37,9 @@ hex_logo()
 
 ![](README_files/figure-markdown_github/hex-logo-1.png)
 
+Write a letter on official SDS letterhead
+-----------------------------------------
+
+Select **File -&gt; New File -&gt; R Markdown...** and choose the **Smith SDS Letter** template
+
 Post any bugs to Issues!

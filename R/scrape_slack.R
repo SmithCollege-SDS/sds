@@ -4,9 +4,10 @@
 #' and extracts into `data` directory.
 #'
 #' @importFrom jsonlite fromJSON
-#' @param channel_name String with exact group name
-#' @param date Date in the following format: Sep 2 2017
-#unzip_slack_export <- function(group_name, date){
+#' @import dplyr
+#' @param dir directory
+#' @param ... currently ignored
+#  unzip_slack_export <- function(group_name, date){
 #  filename <- sprintf("%s Slack export %s", group_name, date)
 #  unzip_cmd <- sprintf("rm -rf data && mkdir -p data && unzip '%s.zip' -d data", filename)
 #  system(unzip_cmd)
@@ -21,11 +22,13 @@
 # channels_df <- jsonlite::fromJSON('data/channels.json', flatten = T)
 # users_df <- jsonlite::fromJSON('data/users.json', flatten = T)
 #' @examples
+#' \dontrun{
 #' slack_labs("~/Dropbox/git/sds192/student_info/SDS 192-f17 Slack export Sep 24 2017/")
+#' }
 
 slack_labs <- function(dir, ...) {
   users_df <- jsonlite::fromJSON(file.path(dir, "users.json"), flatten = T) %>%
-    select(id, real_name, profile.email)
+    dplyr::select(id, real_name, profile.email)
   labs <- list.files(dir, pattern = "lab*")
   lab_days <- list.files(file.path(dir, labs[1]), full.names = TRUE)
   labs_df <- lapply(lab_days, jsonlite::fromJSON, flatten = TRUE) %>%

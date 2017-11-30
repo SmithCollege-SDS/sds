@@ -35,4 +35,8 @@ docs <- c("~/Dropbox/git/sds192/student_info/ClassList_10672.xls") %>%
 hex_logo()
 ```
 
+## Write a letter on official SDS letterhead
+
+Select **File -> New File -> R Markdown...** and choose the **Smith SDS Letter** template
+
 Post any bugs to Issues!

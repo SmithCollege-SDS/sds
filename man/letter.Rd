@@ -3,10 +3,13 @@
 \name{letter}
 \alias{letter}
 \title{Smith letter stationery (PDF)}
+\source{
+\url{https://www.smith.edu/about-smith/college-relations/visual-identity-program}
+}
 \usage{
-letter(fig_width = 10, fig_height = 2.5, fig_crop = TRUE, dev = "pdf",
+letter(fig_width = 10, fig_height = 5, fig_crop = TRUE, dev = "pdf",
   highlight = "default", keep_tex = FALSE, includes = NULL,
-  md_extensions = NULL, pandoc_args = NULL)
+  md_extensions = NULL, pandoc_args = NULL, ...)
 }
 \arguments{
 \item{fig_width}{Default width (in inches) for figures}
@@ -32,11 +35,26 @@ default definition or R Markdown. See the \code{\link{rmarkdown_format}} for
 additional details.}
 
 \item{pandoc_args}{Additional command line options to pass to pandoc}
+
+\item{...}{Arguments passed to \code{pdf_document()}.}
 }
 \description{
-Smith letter stationery (PDF)
+Write a letter in R Markdown on the official Smith College SDS
+letterhead
+}
+\details{
+Note that this uses \code{ebgaramond-maths} as the default font. You
+will need the \code{texlive-fonts-extra} package or the equivalent. Note also
+that in order for this to work you must us the \code{xelatex} rendering engine.
 }
 \examples{
-letter()
+\dontrun{
+# simple invocation
+render("input.Rmd", sds::letter())
+}
 
+
+}
+\seealso{
+\code{\link[rmarkdown]{pdf_document}}
 }

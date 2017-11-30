@@ -1,3 +1,6 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
 ^data-raw$
+^to-do$
+^README\.Rmd$
+^README_files.*$

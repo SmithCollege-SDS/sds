@@ -78,23 +78,32 @@ class_notes <- function(fig_width = 10,
 
 
 #' Smith letter stationery (PDF)
-#'
+#' @description Write a letter in R Markdown on the official Smith College SDS
+#' letterhead
+#' @details Note that this uses \code{ebgaramond-maths} as the default font. You
+#' will need the \code{texlive-fonts-extra} package or the equivalent. Note also
+#' that in order for this to work you must us the \code{xelatex} rendering engine.
 #' @inheritParams rmarkdown::pdf_document
-#' @import rmarkdown
-#' @import knitr
+#' @importFrom rmarkdown pdf_document
 #' @export
+#' @seealso \code{\link[rmarkdown]{pdf_document}}
+#' @source \url{https://www.smith.edu/about-smith/college-relations/visual-identity-program}
 #' @examples
-#' letter()
+#' \dontrun{
+#' # simple invocation
+#' render("input.Rmd", sds::letter())
+#' }
+#'
 #'
 letter <- function(fig_width = 10,
-                   fig_height = 2.5,
+                   fig_height = 5,
                    fig_crop = TRUE,
                    dev = 'pdf',
                    highlight = "default",
                    keep_tex = FALSE,
                    includes = NULL,
                    md_extensions = NULL,
-                   pandoc_args = NULL) {
+                   pandoc_args = NULL, ...) {
 
   # get the template
   template <-  system.file("rmarkdown", "templates", "letter/resources/template.tex", package = "sds")
@@ -111,10 +120,10 @@ letter <- function(fig_width = 10,
                           highlight = highlight,
                           template = template,
                           keep_tex = keep_tex,
-                          latex_engine = "pdflatex",
+                          latex_engine = "xelatex",
                           includes = includes,
                           md_extensions = md_extensions,
-                          pandoc_args = pandoc_args)
+                          pandoc_args = pandoc_args, ...)
 }
 
 

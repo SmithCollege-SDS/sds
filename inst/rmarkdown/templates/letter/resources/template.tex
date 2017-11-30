@@ -19,7 +19,8 @@ $if(euro)$
 $endif$
 \else % if luatex or xelatex
   \ifxetex
-    \usepackage{mathspec}
+  % https://tex.stackexchange.com/questions/279533/using-pandoc-and-xetex-with-tufte-handout-class-gives-fontspec-error/279741
+%    \usepackage{mathspec}
   \else
     \usepackage{fontspec}
   \fi
@@ -215,6 +216,9 @@ $endfor$
 
 $if(blockquote)$
 \usepackage{mdframed} % color is loaded by mdframed
+% https://www.smith.edu/about-smith/college-relations/visual-identity-program/using-logo
+\definecolor{smith-blue}{RGB}{0,47,95}
+\definecolor{smith-gold}{RGB}{240,171,0}
 \definecolor{greyborder}{RGB}{221,221,221}
 \definecolor{greytext}{RGB}{119,119,119}
 \newmdenv[rightline=false,bottomline=false,topline=false,linewidth=3pt,linecolor=greyborder,skipabove=\parskip]{blockquote}

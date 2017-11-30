@@ -1,4 +1,6 @@
 #' Print the Smith SDS hex logo
+#' @importFrom graphics lines par plot points polygon segments text
+#' @importFrom stats lm predict rnorm
 #' @export
 #' @author Miles Ott
 #' @examples

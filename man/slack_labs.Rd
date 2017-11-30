@@ -7,14 +7,16 @@
 slack_labs(dir, ...)
 }
 \arguments{
-\item{channel_name}{String with exact group name}
+\item{dir}{directory}
 
-\item{date}{Date in the following format: Sep 2 2017}
+\item{...}{currently ignored}
 }
 \description{
 Removes previously extracted `data` directory if exists
 and extracts into `data` directory.
 }
 \examples{
+\dontrun{
 slack_labs("~/Dropbox/git/sds192/student_info/SDS 192-f17 Slack export Sep 24 2017/")
+}
 }
