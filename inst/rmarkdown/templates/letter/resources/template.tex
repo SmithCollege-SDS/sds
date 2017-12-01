@@ -249,6 +249,8 @@ $endif$
 $endif$
 
 \begin{letter}{$for(address)$$address$$sep$\\$endfor$}
+% hack to get top margin on first page only
+\vspace*{0.75in}
 \opening{$opening$}
 
 $body$
@@ -292,4 +294,6 @@ $for(include-after)$
 $include-after$
 
 $endfor$
+% hack to get text to always move to top in short letter
+\vspace*{\fill}
 \end{document}
