@@ -55,9 +55,13 @@ $endif$
 \usepackage{microtype}
 \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
 }{}
+
 $if(geometry)$
 \usepackage[$for(geometry)$$geometry$$sep$,$endfor$]{geometry}
+$else$
+\usepackage[left=1.5in,right=1in,top=1in,bottom=1in]{geometry}
 $endif$
+
 \usepackage[unicode=true]{hyperref}
 $if(colorlinks)$
 \PassOptionsToPackage{usenames,dvipsnames}{color} % color is loaded by hyperref
@@ -198,7 +202,7 @@ $endif$
 
 $if(signature)$
 \usepackage{graphicx,grffile}
-\signature{$if(signature-before)$\vspace*{$signature-before$}$endif$\includegraphics{$signature$}$if(author)$\\$if(signature-after)$\vspace*{$signature-after$}$endif$$for(author)$$author$$sep$\\$endfor$$endif$}
+\signature{$if(signature-before)$\vspace*{$signature-before$}$endif$\includegraphics[width=$if(signature-width)$$signature-width$$else$0.3$endif$\textwidth]{$signature$}$if(author)$\\$if(signature-after)$\vspace*{$signature-after$}$endif$$for(author)$$author$$sep$\\$endfor$$endif$}
 $else$
 $if(author)$
 \signature{$for(author)$$author$$sep$\\$endfor$}
@@ -249,8 +253,10 @@ $endif$
 $endif$
 
 \begin{letter}{$for(address)$$address$$sep$\\$endfor$}
+
 % hack to get top margin on first page only
-\vspace*{0.75in}
+\vspace*{$page-one-top-margin$in}
+
 \opening{$opening$}
 
 $body$
@@ -294,6 +300,9 @@ $for(include-after)$
 $include-after$
 
 $endfor$
+
 % hack to get text to always move to top in short letter
+$if(vertical-fill)$
 \vspace*{\fill}
+$endif$
 \end{document}
