@@ -6,7 +6,7 @@ author:
 - Smith College
 opening: To whom it may concern,
 closing: Sincerely,
-date: "`r format(Sys.time(), '%B %d, %Y')`"
+date: "`r format(Sys.time(), '%B %e, %Y')`"
 address: 
 - 123 Street Rd
 - Chicago, IL
