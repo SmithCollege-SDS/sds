@@ -62,8 +62,8 @@ html_remove_byline <- function(path, verbose = FALSE, ...) {
   if (any(y, na.rm = TRUE)) {
     if (verbose) {
       message(paste("Deleting meta information from", path))
-      xml2::xml_remove(meta)
     }
+    xml2::xml_remove(meta)
   } else {
     message(paste("Didn't find author meta information in", path))
   }
@@ -74,8 +74,8 @@ html_remove_byline <- function(path, verbose = FALSE, ...) {
   if (length(byline) > 0) {
     if (verbose) {
       message(paste("...deleting byline from", path))
-      xml2::xml_remove(byline)
     }
+    xml2::xml_remove(byline)
   } else {
     message(paste("...no byline found in", path))
   }
