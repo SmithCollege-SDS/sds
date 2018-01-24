@@ -4,7 +4,12 @@
 \alias{hex_logo}
 \title{Print the Smith SDS hex logo}
 \usage{
-hex_logo()
+hex_logo(file = "sds_hex.png", ...)
+}
+\arguments{
+\item{file}{file path}
+
+\item{...}{arguments passed to \code{\link{png}}}
 }
 \description{
 Print the Smith SDS hex logo

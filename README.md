@@ -32,10 +32,10 @@ Print hex logo!
 ---------------
 
 ``` r
-hex_logo()
+hex_logo(file = "inst/sds_hex.png")
 ```
 
-![](README_files/figure-markdown_github/hex-logo-1.png)
+![SDS hex logo](inst/sds_hex.png)
 
 Write a letter on official SDS letterhead
 -----------------------------------------
