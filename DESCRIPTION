@@ -1,6 +1,6 @@
 Package: sds
 Title: Templates and things for SDS Program
-Version: 0.0.0.9008
+Version: 0.0.0.9010
 Authors@R: c(
     person("Ben", "Baumer", email = "bbaumer@smith.edu", role = c("aut", "cre")),
     person("Miles", "Ott", role = "ctb"))
@@ -17,6 +17,7 @@ Imports:
     magrittr,
     rmarkdown,
     rvest,
+    stringr,
     tibble,
     xml2
 License: CC0

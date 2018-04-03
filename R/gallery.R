@@ -1,3 +1,43 @@
+#' Render all of the markdown files in an assigment
+#' @export
+#' @param from directory of Moodle assignment
+#' @param ... currently ignored
+#' @importFrom tools md5sum
+#' @importFrom tibble as.tibble rownames_to_column
+#' @importFrom dplyr mutate
+#' @importFrom rmarkdown render
+#' @importFrom stringr str_sub str_extract
+#'
+#' @examples
+#' \dontrun{
+#' my_dir <- "~/Dropbox/git/sds192/student_info/test"
+#' if (require(dplyr)) {
+#'   my_dir %>%
+#'     render_rmd()
+#' }
+#' }
+#'
+
+render_rmd <- function(from, ...) {
+  src <- list.files(from, recursive = TRUE,
+                          pattern = "*.Rmd", full.names = TRUE)
+  x <- src %>%
+    tools::md5sum() %>%
+    tibble::as.tibble() %>%
+    tibble::rownames_to_column(var = "path") %>%
+    dplyr::mutate_(student_name = ~gsub(" ", "_", tolower(stringr::str_extract(path, "[[a-zA-Z -]]+_[0-9]{6}_"))),
+                   new_filename = ~paste0(student_name, stringr::str_sub(value, 1, 6), ".Rmd"),
+                   new_path = ~file.path(from, new_filename))
+
+#  file.symlink(from = src, to = x$new_path)
+  file.copy(from = src, to = x$new_path)
+
+  # write makefile
+
+  sapply(x$new_path, rmarkdown::render, output_format = "html_document")
+}
+
+
 #' Make a gallery of HTML docs downloaded from Moodle
 #' @export
 #' @param from directory of Moodle assignment
