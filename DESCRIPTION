@@ -1,6 +1,6 @@
 Package: sds
 Title: Templates and things for SDS Program
-Version: 0.0.0.9010
+Version: 0.0.0.9011
 Authors@R: c(
     person("Ben", "Baumer", email = "bbaumer@smith.edu", role = c("aut", "cre")),
     person("Miles", "Ott", role = "ctb"))
@@ -12,6 +12,7 @@ Depends:
     R (>= 3.0.0)
 Imports:
     dplyr,
+    ggplot2,
     knitr,
     jsonlite,
     magrittr,
