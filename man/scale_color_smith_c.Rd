@@ -2,39 +2,60 @@
 % Please edit documentation in R/colors.R
 \name{scale_color_smith_c}
 \alias{scale_color_smith_c}
+\alias{scale_fill_smith_c}
 \alias{scale_color_smith_cd}
+\alias{scale_fill_smith_cd}
 \alias{scale_color_smith_d}
+\alias{scale_fill_smith_d}
+\alias{smith_pal_categorical}
 \title{Smith College color palettes}
 \usage{
 scale_color_smith_c(reverse = FALSE, ...)
 
+scale_fill_smith_c(reverse = FALSE, ...)
+
 scale_color_smith_cd(reverse = FALSE, ...)
 
-scale_color_smith_d(reverse = FALSE, ...)
+scale_fill_smith_cd(reverse = FALSE, ...)
+
+scale_color_smith_d(...)
+
+scale_fill_smith_d(...)
+
+smith_pal_categorical(n)
 }
 \arguments{
 \item{reverse}{Reverse the order of colors?}
 
 \item{...}{arguments passed to methods}
+
+\item{n}{number of colors desired}
 }
 \description{
-Smith College color palettes
+Smith College themed \code{ggplot2} color palettes
 }
 \examples{
 
 if (require(ggplot2)) {
-  ggplot(mtcars, aes(x = disp, y = mpg)) +
-    geom_point(aes(color = mpg)) +
-    scale_color_smith_c(reverse = TRUE)
+  x <- ggplot(mtcars, aes(x = disp, y = mpg, color = mpg)) +
+    geom_point()
+  x + scale_color_smith_c(reverse = TRUE)
+  x + scale_color_smith_cd(midpoint = 20)
+  x + aes(color = factor(am)) + scale_color_smith_d()
+  x + aes(color = factor(gear)) + scale_color_smith_d()
+  x + aes(color = factor(carb)) + scale_color_smith_d()
+  x + aes(color = factor(am)) + scale_fill_smith_d()
 
-  ggplot(mtcars, aes(x = disp, y = mpg)) +
-    geom_point(aes(color = mpg)) +
-    scale_color_smith_cd(midpoint = 20)
+  y <- ggplot(mtcars, aes(x = cyl, fill = factor(am))) + geom_bar(position = "dodge")
 
-  ggplot(mtcars, aes(x = disp, y = mpg)) +
-    geom_point(aes(color = factor(am))) +
-    scale_color_smith_d()
+  ggplot(mpg, aes(y = hwy, x = reorder(model, hwy), color = displ, fill = hwy)) +
+    geom_col(position = "dodge") +
+    coord_flip() +
+    facet_wrap(~year) +
+    scale_fill_smith_cd(midpoint = 20) +
+    scale_color_smith_c()
 }
+smith_pal_categorical(2)
 }
 \references{
 \url{https://drsimonj.svbtle.com/creating-corporate-colour-palettes-for-ggplot2}

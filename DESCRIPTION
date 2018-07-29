@@ -1,13 +1,14 @@
 Package: sds
 Title: Templates and things for SDS Program
-Version: 0.0.0.9011
+Version: 0.0.1.9000
 Authors@R: c(
     person("Ben", "Baumer", email = "bbaumer@smith.edu", role = c("aut", "cre")),
     person("Miles", "Ott", role = "ctb"))
 Description: R Markdown's templating ability allows one to create templates for
     LaTeX and Markdown documents. This package contains templates for creating
     class notes, lab reports, posters, letters and other documents with
-    customization for Smith College SDS faculty and students.
+    customization for Smith College SDS faculty and students. Smith-themed palettes
+    for ggplot2 graphics are also included.
 Depends:
     R (>= 3.0.0)
 Imports:
@@ -25,3 +26,4 @@ License: CC0
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.0.1
+Suggests: testthat

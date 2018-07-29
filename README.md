@@ -22,11 +22,26 @@ Get class list
 --------------
 
 ``` r
+library(tidyverse)
 # download class list from BannerWeb
 docs <- c("~/Dropbox/git/sds192/student_info/ClassList_10672.xls") %>%
   class_list() %>%
   glimpse()
 ```
+
+Add Smith theming to a `ggplot`
+-------------------------------
+
+``` r
+library(ggplot2)
+ggplot(mpg, aes(y = hwy, x = reorder(model, hwy), fill = hwy)) +
+  geom_col(position = "dodge") +
+  coord_flip() +
+  facet_wrap(~year) +
+  scale_fill_smith_cd(midpoint = 20)
+```
+
+![](README_files/figure-markdown_github/unnamed-chunk-4-1.png)
 
 Print hex logo!
 ---------------
