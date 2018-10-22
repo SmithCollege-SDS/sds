@@ -42,3 +42,39 @@ class_list_one <- function(xls) {
   }
   return(out)
 }
+
+
+#' Utilities for dealing with BannerWeb
+#' @param x Description of a term
+#' @export
+#' @examples
+#' term_to_banner_term("f18")
+#' term_to_banner_term("s18")
+
+term_to_banner_term <- function(x) {
+  year <- readr::parse_number(x) + 2000
+  semester <- gsub("[0-9]", "", x)
+  if (semester == "f") {
+    term <- (year + 1) * 100 + 1
+  } else {
+    term <- year * 100 + 3
+  }
+  return(term)
+}
+
+#' @rdname term_to_banner_term
+#' @export
+#' @examples
+#' banner_term_to_term("201901")
+#' banner_term_to_term("201803")
+
+banner_term_to_term <- function(x) {
+  year <- readr::parse_number(stringr::str_sub(x, 1, 4))
+  semester <- stringr::str_sub(x, 5, 6)
+  if (semester == "01") {
+    term = paste0("f", year - 2001)
+  } else {
+    term = paste0("s", year - 2000)
+  }
+  return(term)
+}

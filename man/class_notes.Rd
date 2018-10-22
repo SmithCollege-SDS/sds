@@ -5,8 +5,8 @@
 \title{Class notes format (PDF)}
 \usage{
 class_notes(fig_width = 10, fig_height = 2.5, fig_crop = TRUE,
-  dev = "pdf", highlight = "default", keep_tex = FALSE, includes = NULL,
-  md_extensions = NULL, pandoc_args = NULL)
+  dev = "pdf", highlight = "default", keep_tex = FALSE,
+  includes = NULL, md_extensions = NULL, pandoc_args = NULL)
 }
 \arguments{
 \item{fig_width}{Default width (in inches) for figures}
