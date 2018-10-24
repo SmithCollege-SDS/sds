@@ -33,7 +33,8 @@ class_list_one <- function(xls) {
     repair_names() %>%
     dplyr::rename_("Student" = ~`Student Name*`) %>%
     dplyr::filter_(~!is.na(ID)) %>%
-    dplyr::mutate_(Class = ~as.character(Class))
+    dplyr::mutate_(Class = ~as.character(Class),
+                   Major1 = ~as.character(Major1))
 
   if (ncol(out) == 11) {
     # shift columns for concentrations
@@ -48,33 +49,77 @@ class_list_one <- function(xls) {
 #' @param x Description of a term
 #' @export
 #' @examples
-#' term_to_banner_term("f18")
-#' term_to_banner_term("s18")
+#' term_to_banner_term(c("f18", "s18", "f17"))
 
 term_to_banner_term <- function(x) {
   year <- readr::parse_number(x) + 2000
-  semester <- gsub("[0-9]", "", x)
-  if (semester == "f") {
-    term <- (year + 1) * 100 + 1
-  } else {
-    term <- year * 100 + 3
-  }
+  semester <- stringr::str_replace_all(x, pattern = "[0-9]+", replacement = "")
+  term <- ifelse(semester == "f", (year + 1) * 100 + 1, year * 100 + 3)
   return(term)
 }
 
 #' @rdname term_to_banner_term
 #' @export
 #' @examples
-#' banner_term_to_term("201901")
-#' banner_term_to_term("201803")
+#' banner_term_to_term(c("201901", "201803", "201801"))
 
 banner_term_to_term <- function(x) {
   year <- readr::parse_number(stringr::str_sub(x, 1, 4))
   semester <- stringr::str_sub(x, 5, 6)
-  if (semester == "01") {
-    term = paste0("f", year - 2001)
-  } else {
-    term = paste0("s", year - 2000)
-  }
+  term <- ifelse(semester == "01", paste0("f", year - 2001), paste0("s", year - 2000))
   return(term)
+}
+
+#' @rdname term_to_banner_term
+#' @param dir Path to directory where BannerWeb export files are located
+#' @export
+#' @importFrom magrittr %>%
+#' @importFrom fs dir_ls path_file path_ext_remove
+#' @importFrom stringr str_split_fixed
+#' @importFrom tibble as_tibble
+#' @importFrom dplyr mutate
+#' @examples
+#' \dontrun{
+#' bannerweb_db <- "~/Dropbox/SDS/students/enrollments/bannerweb_exports"
+#' crn_from_file(bannerweb_db)
+#' }
+
+crn_from_file <- function(dir) {
+  crns <- fs::dir_ls(dir, pattern = "ClassList") %>%
+    fs::path_file() %>%
+    fs::path_ext_remove() %>%
+    stringr::str_split_fixed(pattern = "_", n = 6) %>%
+    tibble::as_tibble() %>%
+    select(-1)
+  names(crns) <- c("crn", "dept", "number", "term", "instructor")
+  crns %>%
+    mutate(filename = paste0(paste("ClassList", crn, dept, number, term, instructor, sep = "_"), ".xls"),
+           crn_term = term_to_banner_term(term),
+           crn = as.numeric(crn))
+}
+
+#' @rdname term_to_banner_term
+#' @param path Vector of paths to BannerWeb export files
+#' @param domain Domain name for BannerWeb server
+#' @param ... currently ignored
+#' @importFrom downloader download
+#' @importFrom fs path
+#' @importFrom purrr walk2
+#' @importFrom dplyr mutate
+#' @export
+#' @examples
+#' \dontrun{
+#'   paths <- head(fs::dir_ls(bannerweb_db))
+#'   file_refresh(paths, "banner.myschool.edu")
+#' }
+
+file_refresh <- function(path, domain, ...) {
+  filename <- fs::path_file(path)
+  parts <- stringr::str_split_fixed(filename, "_", 6)
+  crn <- as.numeric(parts[, 2])
+  term <- term_to_banner_term(parts[, 5])
+  url <- paste0("https://", domain, "/PROD/wroster.P_ExcelList?term=",
+                term, "&crn=", crn)
+  purrr::walk2(url, fs::path(path),
+               ~downloader::download(.x, destfile = .y))
 }

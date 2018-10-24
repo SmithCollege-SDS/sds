@@ -1,6 +1,6 @@
 Package: sds
 Title: Templates and things for SDS Program
-Version: 0.0.1.9001
+Version: 0.0.1.9002
 Authors@R: c(
     person("Ben", "Baumer", email = "bbaumer@smith.edu", role = c("aut", "cre")),
     person("Miles", "Ott", role = "ctb"))
@@ -12,11 +12,14 @@ Description: R Markdown's templating ability allows one to create templates for
 Depends:
     R (>= 3.0.0)
 Imports:
+    downloader,
     dplyr,
+    fs,
     ggplot2,
     knitr,
     jsonlite,
     magrittr,
+    purrr,
     readr,
     rmarkdown,
     rvest,
