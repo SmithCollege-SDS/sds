@@ -3,6 +3,7 @@
 export(anonymize)
 export(banner_term_to_term)
 export(class_list)
+export(class_list_url)
 export(class_notes)
 export(crn_from_file)
 export(cull_html)

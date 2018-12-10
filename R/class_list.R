@@ -114,12 +114,25 @@ crn_from_file <- function(dir) {
 #' }
 
 file_refresh <- function(path, domain, ...) {
+  url <- class_list_url(path, domain, ...)
+  purrr::walk2(url, fs::path(path),
+               ~downloader::download(.x, destfile = .y))
+}
+
+#' @rdname term_to_banner_term
+#' @export
+#' @examples
+#' \dontrun{
+#' bannerweb_db <- "~/Dropbox/SDS/students/enrollments/bannerweb_exports"
+#' paths <- head(fs::dir_ls(bannerweb_db))
+#' class_list_url(paths, domain = "myschool.edu")
+#' }
+
+class_list_url <- function(path, domain, ...) {
   filename <- fs::path_file(path)
   parts <- stringr::str_split_fixed(filename, "_", 6)
   crn <- as.numeric(parts[, 2])
   term <- term_to_banner_term(parts[, 5])
-  url <- paste0("https://", domain, "/PROD/wroster.P_ExcelList?term=",
+  paste0("https://", domain, "/PROD/wroster.P_ExcelList?term=",
                 term, "&crn=", crn)
-  purrr::walk2(url, fs::path(path),
-               ~downloader::download(.x, destfile = .y))
 }

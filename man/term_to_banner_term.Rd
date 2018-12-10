@@ -5,6 +5,7 @@
 \alias{banner_term_to_term}
 \alias{crn_from_file}
 \alias{file_refresh}
+\alias{class_list_url}
 \title{Utilities for dealing with BannerWeb}
 \usage{
 term_to_banner_term(x)
@@ -14,6 +15,8 @@ banner_term_to_term(x)
 crn_from_file(dir)
 
 file_refresh(path, domain, ...)
+
+class_list_url(path, domain, ...)
 }
 \arguments{
 \item{x}{Description of a term}
@@ -39,5 +42,10 @@ crn_from_file(bannerweb_db)
 \dontrun{
   paths <- head(fs::dir_ls(bannerweb_db))
   file_refresh(paths, "banner.myschool.edu")
+}
+\dontrun{
+bannerweb_db <- "~/Dropbox/SDS/students/enrollments/bannerweb_exports"
+paths <- head(fs::dir_ls(bannerweb_db))
+class_list_url(paths, domain = "myschool.edu")
 }
 }
