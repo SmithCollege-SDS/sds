@@ -4,6 +4,7 @@
 \alias{cull_html}
 \alias{anonymize}
 \alias{html_remove_byline}
+\alias{winnow_group_submissions}
 \title{Make a gallery of HTML docs downloaded from Moodle}
 \usage{
 cull_html(from, to, ...)
@@ -11,6 +12,8 @@ cull_html(from, to, ...)
 anonymize(dir)
 
 html_remove_byline(path, verbose = FALSE, ...)
+
+winnow_group_submissions(dir)
 }
 \arguments{
 \item{from}{directory of Moodle assignment}

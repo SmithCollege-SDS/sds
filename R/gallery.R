@@ -123,3 +123,23 @@ html_remove_byline <- function(path, verbose = FALSE, ...) {
   xml2::write_xml(page, path)
   rm(page)
 }
+
+#' @rdname cull_html
+#' @export
+#'
+winnow_group_submissions <- function(dir) {
+  dirs <- fs::dir_ls(dir) %>%
+    tibble::enframe(name = NULL) %>%
+    dplyr::mutate(folder_name = fs::path_file(value),
+                  group = stringr::str_extract(folder_name, "Group_[A-Z]+")) %>%
+    group_by(group) %>%
+    mutate(rank = min_rank(folder_name)) %>%
+    filter(!is.na(group))
+
+  to_delete <- dirs %>%
+    filter(rank != 1) %>%
+    pull(value)
+
+  fs::file_delete(to_delete)
+}
+
