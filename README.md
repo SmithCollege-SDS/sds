@@ -11,6 +11,15 @@ Install
 devtools::install_github("SmithCollege-SDS/sds")
 ```
 
+Given that this repository is private, the above code may not work. To install from a private repo, add an `auth_token` argument to `install_github()` with a Personal Access Token (PAT) from https://github.com/settings/tokens; you only need the repo scope.
+
+``` r
+install_github("hadley/private", auth_token = "abc")
+```
+
+Best practice is to save your PAT in env var called `GITHUB_PAT`.  Note: these instructions were lifted from the bottom of the help file for `install_github()`; more info can be found in the [Happy Git and GitHub for the useR](https://happygitwithr.com/github-pat.html) book.
+
+
 Load
 ----
 
