@@ -19,12 +19,14 @@ Imports:
     knitr,
     jsonlite,
     magrittr,
+    pdftools,
     purrr,
     readr,
     rmarkdown,
     rvest,
     stringr,
     tibble,
+    tidyr,
     xml2
 License: CC0
 Encoding: UTF-8
