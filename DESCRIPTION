@@ -1,6 +1,6 @@
 Package: sds
 Title: Templates and things for SDS Program
-Version: 0.0.1.9004
+Version: 0.0.1.9005
 Authors@R: c(
     person("Ben", "Baumer", email = "bbaumer@smith.edu", role = c("aut", "cre")),
     person("Miles", "Ott", role = "ctb"))
