@@ -1,0 +1,30 @@
+/*Smith College theme
+*/
+
+h1, h2, h3 {
+  font-weight: normal;
+  color: #002855;
+}
+
+a, a > code {
+  color: #F2A900;
+}
+
+.remark-code-line-highlighted { 
+  background-color: rgba(136, 57, 138, 0.3); 
+}
+
+.inverse {
+  background-color: #002855;
+}
+
+.inverse, .inverse h1, .inverse h2, .inverse h3, .inverse a, inverse a > code 
+{
+  color: #fff;
+}
+
+.title-slide { 
+  background-image: url(https://www.smith.edu/sites/all/themes/smith_edu/images/logo-footer-2x.png); 
+  background-position: 3% 97%;
+  background-size: 200px;
+}

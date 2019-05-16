@@ -1,0 +1,74 @@
+---
+title: "Data Science at Smith"
+subtitle: "xaringan style"
+author: "&#128435;</br>Ben Baumer</br>[Statistical & Data Sciences](http://www.smith.edu/sds)"
+date: "2019-03-01"
+output:
+  sds::xaringan:
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+```
+
+class: center, middle
+# Statistical & Data Sciences
+---
+
+# Governance
+
+.pull-left[
+
+![](https://media.giphy.com/media/3oz8xMLQbQyRsCH1xS/giphy.gif)
+
+]
+
+.pull-right[
+
+```{r sds-hex-logo}
+knitr::include_graphics(system.file('sds_hex.png', package = 'sds'))
+```
+
+]
+
+---
+# SDS Tenure-track Faculty
+
+.pull-left[
+
+100% in SDS
+
+![:scalewidth 33%](https://www.smith.edu/sites/default/files/styles/img-faculty-detail/public/media/Faculty/ben_baumer_crop.jpg) Ben Baumer
+
+![:scalewidth 33%](https://www.smith.edu/sites/default/files/styles/img-faculty-detail/public/media/Faculty/miles_ott_crop.jpg) Miles Ott
+
+![:scalewidth 33%](https://www.smith.edu/sites/default/files/styles/img-faculty-detail/public/media/Faculty/albert_kim_crop.jpg) Albert Y. Kim
+
+] 
+
+.pull-right[
+
+50% in SDS
+
+![:scalewidth 33%](http://ds.cs.umass.edu/sites/default/files/styles/yellow_pages/public/Photos/Profiles/halvorsen_130.jpg) Katherine Halvorsen (MTH)
+
+![:scalewidth 33%](https://www.smith.edu/sites/default/files/styles/img-faculty-detail/public/media/Faculty/randi_garcia_crop.jpg) Randi Garcia (PSY)
+
+![:scalewidth 33%](https://www.smith.edu/sites/default/files/styles/img-faculty-detail/public/media/Faculty/katherine_kinnaird.jpg) Katherine Kinnaird (CSC)
+
+]
+
+---
+class: center, middle
+# Thank you!
+
+<i class="fa fa-envelope" aria-hidden="true"></i> [bbaumer@smith.edu](mailto:bbaumer@smith.edu)
+
+<i class="fa fa-twitter" style="font-size:36px"></i> [BaumerBen](http://www.github.com/BaumerBen)
+
+<i class="fa fa-github" style="font-size:36px"></i> [beanumber](http://www.github.com/beanumber)

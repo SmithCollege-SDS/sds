@@ -1,6 +1,6 @@
 Package: sds
 Title: Templates and things for SDS Program
-Version: 0.0.1.9006
+Version: 0.0.1.9007
 Authors@R: c(
     person("Ben", "Baumer", email = "bbaumer@smith.edu", role = c("aut", "cre")),
     person("Miles", "Ott", role = "ctb"))
@@ -27,6 +27,7 @@ Imports:
     stringr,
     tibble,
     tidyr,
+    xaringan,
     xml2
 License: CC0
 Encoding: UTF-8

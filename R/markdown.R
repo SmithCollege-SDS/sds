@@ -204,3 +204,41 @@ memo <- function(fig_width = 10,
   format$knitr <- knitr_options
   format
 }
+
+
+
+#' Smith xaringan slides (HTML)
+#' @description Write a presentation in R Markdown using Smith College SDS theming
+#' @inheritParams xaringan::moon_reader
+#' @export
+#' @seealso \code{\link[xaringan]{moon_reader}}
+#' @source \url{https://www.smith.edu/about-smith/college-relations/visual-identity-program}
+#' @examples
+#' \dontrun{
+#' # simple invocation
+#' rmarkdown::render("input.Rmd", "sds::xaringan")
+#' }
+#'
+#'
+xaringan <- function(css = c("default", "default-fonts"),
+                     self_contained = FALSE,
+                     seal = TRUE, yolo = FALSE,
+                     chakra = "https://remarkjs.com/downloads/remark-latest.min.js",
+                     nature = list(), ...) {
+
+  # get the CSS
+  smith_css <- c(
+    "default",
+    "default-fonts",
+    system.file("rmarkdown", "templates", "xaringan", "resources", "smith.css", package = "sds"),
+    system.file("rmarkdown", "templates", "xaringan", "resources", "smith-fonts.css", package = "sds"),
+    "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+  )
+  smith_nature <- list(beforeInit = system.file("rmarkdown", "templates", "xaringan", "resources", "macros.js", package = "sds"))
+  # call the base moon_reader format with the appropriate options
+  xaringan::moon_reader(
+    css = smith_css, self_contained, seal, yolo, chakra,
+    nature = append(smith_nature, nature), ...)
+}
+
+
