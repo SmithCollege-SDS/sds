@@ -51,6 +51,11 @@ hex_logo(file = "inst/sds_hex.png")
 Select **File -\> New File -\> R Markdown…** and choose the **Smith SDS
 Letter** template
 
+## Write a xaringan presentation with Smith theming
+
+Select **File -\> New File -\> R Markdown…** and choose the **Smith
+xaringan** template
+
 -----
 
 Post any bugs to
