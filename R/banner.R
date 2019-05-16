@@ -5,42 +5,36 @@ globalVariables(c("crn", "dept", "number", "term", "instructor", "xpos_36",
                   "major1", "major2"))
 
 #' Combine class BannerWeb class lists into one
-#' @param xls character vector of paths to XLS files exported from BannerWeb
+#' @param path character vector of paths to XLS files exported from BannerWeb
 #' @export
-#' @importFrom xml2 read_html
-#' @importFrom rvest html_table
-#' @importFrom magrittr extract2 %>%
-#' @importFrom dplyr filter mutate bind_rows
-#' @importFrom tibble repair_names
 #'
 #' @examples
 #' \dontrun{
 #' dir <- "~/Dropbox/SDS/students/enrollments/bannerweb_exports"
 #' docs <- list.files(dir, pattern = "291", full.names = TRUE)
-#' my_list <- class_list(docs)
+#' my_list <- read_banner_course(docs)
 #' dim(my_list)
 #' write.csv(my_list, file = "my_class.csv", row.names = FALSE)
 #' }
 
-class_list <- function(xls) {
-  lapply(xls, class_list_one) %>%
-    dplyr::bind_rows()
+read_banner_course <- function(path) {
+  purrr::map_df(path, read_banner_course_one)
 }
 
-class_list_one <- function(xls) {
-  if (!file.exists(xls)) {
+read_banner_course_one <- function(path) {
+  if (!file.exists(path)) {
     stop("Can't find that file!")
   }
   # Note that the XLS files exported from BannerWeb are not actually Excel files!
   # They are malformed HTML tables!
-  out <- xml2::read_html(xls) %>%
+  out <- xml2::read_html(path) %>%
     rvest::html_table(fill = TRUE, header = TRUE) %>%
-    magrittr::extract2(1) %>%
-    repair_names() %>%
-    dplyr::rename_("Student" = ~`Student Name*`) %>%
-    dplyr::filter_(~!is.na(ID)) %>%
-    dplyr::mutate_(Class = ~as.character(Class),
-                   Major1 = ~as.character(Major1))
+    purrr::pluck(1) %>%
+    tibble::repair_names() %>%
+    rename_("Student" = ~`Student Name*`) %>%
+    filter_(~!is.na(ID)) %>%
+    mutate_(Class = ~as.character(Class),
+            Major1 = ~as.character(Major1))
 
   if (ncol(out) == 11) {
     # shift columns for concentrations
@@ -79,11 +73,6 @@ banner_term_to_term <- function(x) {
 #' @rdname term_to_banner_term
 #' @param dir Path to directory where BannerWeb export files are located
 #' @export
-#' @importFrom magrittr %>%
-#' @importFrom fs dir_ls path_file path_ext_remove
-#' @importFrom stringr str_split_fixed
-#' @importFrom tibble as_tibble
-#' @importFrom dplyr mutate
 #' @examples
 #' \dontrun{
 #' bannerweb_db <- "~/Dropbox/SDS/students/enrollments/bannerweb_exports"
@@ -108,10 +97,6 @@ crn_from_file <- function(dir) {
 #' @param path Vector of paths to BannerWeb export files
 #' @param domain Domain name for BannerWeb server
 #' @param ... currently ignored
-#' @importFrom downloader download
-#' @importFrom fs path
-#' @importFrom purrr walk2
-#' @importFrom dplyr mutate
 #' @export
 #' @examples
 #' \dontrun{
@@ -120,7 +105,7 @@ crn_from_file <- function(dir) {
 #' }
 
 file_refresh <- function(path, domain, ...) {
-  url <- class_list_url(path, domain, ...)
+  url <- url_banner_course(path, domain, ...)
   purrr::walk2(url, fs::path(path),
                ~downloader::download(.x, destfile = .y))
 }
@@ -131,10 +116,10 @@ file_refresh <- function(path, domain, ...) {
 #' \dontrun{
 #' bannerweb_db <- "~/Dropbox/SDS/students/enrollments/bannerweb_exports"
 #' paths <- head(fs::dir_ls(bannerweb_db))
-#' class_list_url(paths, domain = "myschool.edu")
+#' url_banner_course(paths, domain = "myschool.edu")
 #' }
 
-class_list_url <- function(path, domain, ...) {
+url_banner_course <- function(path, domain, ...) {
   filename <- fs::path_file(path)
   parts <- stringr::str_split_fixed(filename, "_", 6)
   crn <- as.numeric(parts[, 2])

@@ -3,8 +3,6 @@
 #' Removes previously extracted `data` directory if exists
 #' and extracts into `data` directory.
 #'
-#' @importFrom jsonlite fromJSON
-#' @import dplyr
 #' @param dir directory
 #' @param ... currently ignored
 #  unzip_slack_export <- function(group_name, date){

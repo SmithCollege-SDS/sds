@@ -1,9 +1,10 @@
 ---
-title: "sds"
 output:
   github_document:
     html_preview: true
 ---
+
+# sds <img src='man/figures/logo.png' align="right" height="120" />
 
 R package providing R Markdown templates for SDS
 
@@ -25,14 +26,15 @@ library(sds)
 ```{r, eval=FALSE}
 library(tidyverse)
 # download class list from BannerWeb
-docs <- c("~/Dropbox/git/sds192/student_info/ClassList_10672.xls") %>%
-  class_list() %>%
+file <- fs::path("")
+docs <- c("~/Dropbox/git/sds192/student_info/s18/ClassList_30661.xls") %>%
+  read_banner_course() %>%
   glimpse()
 ```
 
 ## Add Smith theming to a `ggplot`
 
-```{r}
+```{r smith-theme}
 library(ggplot2)
 ggplot(mpg, aes(y = hwy, x = reorder(model, hwy), fill = hwy)) +
   geom_col(position = "dodge") +
@@ -49,10 +51,10 @@ ggplot(mpg, aes(y = hwy, x = reorder(model, hwy), fill = hwy)) +
 hex_logo(file = "inst/sds_hex.png")
 ```
 
-![SDS hex logo](inst/sds_hex.png)
-
 ## Write a letter on official SDS letterhead
 
 Select **File -> New File -> R Markdown...** and choose the **Smith SDS Letter** template
 
-Post any bugs to Issues!
+---
+
+Post any bugs to [Issues](https://github.com/SmithCollege-SDS/sds/issues)!

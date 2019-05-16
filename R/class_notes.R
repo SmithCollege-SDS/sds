@@ -84,7 +84,6 @@ class_notes <- function(fig_width = 10,
 #' will need the \code{texlive-fonts-extra} package or the equivalent. Note also
 #' that in order for this to work you must us the \code{xelatex} rendering engine.
 #' @inheritParams rmarkdown::pdf_document
-#' @importFrom rmarkdown pdf_document
 #' @export
 #' @seealso \code{\link[rmarkdown]{pdf_document}}
 #' @source \url{https://www.smith.edu/about-smith/college-relations/visual-identity-program}

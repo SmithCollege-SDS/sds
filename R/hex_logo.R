@@ -35,7 +35,7 @@ hex_logo <- function(file = "sds_hex.png", ...) {
   segments(x0=-.656, y0=-.656, x1=.656, y1=.656, lwd=1.5, col="white")
 
   #plotting the prediction intervals
-  fit<-lm(y.var~x.var)
+  fit <- lm(y.var ~ x.var)
   pred.1 <- predict(fit,interval="prediction", newdata=data.frame(seq(-1, 1, length=32)))
   lower.b<-pred.1[,2][order(x.var)]
   upper.b<-pred.1[,3][order(x.var)]

@@ -26,8 +26,6 @@
 #'     scale_color_smith_c()
 #' }
 #' @export
-#' @importFrom ggplot2 scale_color_gradientn
-#' @importFrom grDevices colorRampPalette
 
 scale_color_smith_c <- function(reverse = FALSE, ...) {
   colors <- grDevices::colorRampPalette(colors = smith_colors)(256)
@@ -39,7 +37,6 @@ scale_color_smith_c <- function(reverse = FALSE, ...) {
 
 #' @rdname scale_color_smith_c
 #' @export
-#' @importFrom ggplot2 scale_fill_gradientn
 
 scale_fill_smith_c <- function(reverse = FALSE, ...) {
   colors <- grDevices::colorRampPalette(colors = smith_colors)(256)
@@ -52,7 +49,6 @@ scale_fill_smith_c <- function(reverse = FALSE, ...) {
 
 #' @rdname scale_color_smith_c
 #' @export
-#' @importFrom ggplot2 scale_color_gradient2
 
 scale_color_smith_cd <- function(reverse = FALSE, ...) {
   ends <- smith_colors[1:2]
@@ -64,7 +60,6 @@ scale_color_smith_cd <- function(reverse = FALSE, ...) {
 
 #' @rdname scale_color_smith_c
 #' @export
-#' @importFrom ggplot2 scale_fill_gradient2
 
 scale_fill_smith_cd <- function(reverse = FALSE, ...) {
   ends <- smith_colors[1:2]
@@ -77,7 +72,6 @@ scale_fill_smith_cd <- function(reverse = FALSE, ...) {
 
 #' @rdname scale_color_smith_c
 #' @export
-#' @importFrom ggplot2 discrete_scale
 
 scale_color_smith_d <- function(...) {
   ggplot2::discrete_scale("colour", "smith",
@@ -87,7 +81,6 @@ scale_color_smith_d <- function(...) {
 
 #' @rdname scale_color_smith_c
 #' @export
-#' @importFrom ggplot2 discrete_scale
 
 scale_fill_smith_d <- function(...) {
   ggplot2::discrete_scale("fill", "smith",

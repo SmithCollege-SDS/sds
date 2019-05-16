@@ -2,11 +2,6 @@
 #' @export
 #' @param from directory of Moodle assignment
 #' @param ... currently ignored
-#' @importFrom tools md5sum
-#' @importFrom tibble as.tibble rownames_to_column
-#' @importFrom dplyr mutate
-#' @importFrom rmarkdown render
-#' @importFrom stringr str_sub str_extract
 #'
 #' @examples
 #' \dontrun{
@@ -43,10 +38,6 @@ render_rmd <- function(from, ...) {
 #' @param from directory of Moodle assignment
 #' @param to directory of new gallery
 #' @param ... currently ignored
-#' @importFrom tools md5sum
-#' @importFrom tibble as.tibble rownames_to_column
-#' @importFrom dplyr mutate
-#'
 #' @examples
 #' \dontrun{
 #' my_dir <- "~/Dropbox/git/sds192/student_info/SDS192- 01_201801-Mini-project #4-265952/"
@@ -85,8 +76,6 @@ anonymize <- function(dir) {
 
 #' @rdname cull_html
 #' @export
-#' @importFrom rvest html_attr html_nodes
-#' @importFrom xml2 read_html xml_remove write_xml
 #' @param path file to be anonymized
 #' @param verbose tell you what happened?
 
