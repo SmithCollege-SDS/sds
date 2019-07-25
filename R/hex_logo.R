@@ -1,3 +1,7 @@
+globalVariables(c("inside_lwr", "inside_upr", "profile.email",
+                  "r", "r_lwr", "r_upr", "real_name", "subtype",
+                  "user", "x.var", "y.var"))
+
 #' Print the Smith SDS hex logo
 #' @importFrom graphics lines par plot points polygon segments text
 #' @importFrom stats lm predict rnorm

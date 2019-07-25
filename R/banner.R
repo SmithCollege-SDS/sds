@@ -134,8 +134,10 @@ url_banner_course <- function(path, domain, ...) {
 #' @import dplyr
 #' @export
 #' @examples
+#' \dontrun{
 #' sds <- read_major_report("/tmp/SDS_Student_MajorsMinor_Rpt_05 14 2019.pdf")
 #' nrow(sds)
+#' }
 
 read_major_report <- function(path) {
   raw <- pdftools::pdf_data(path)

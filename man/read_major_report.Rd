@@ -16,6 +16,8 @@ a tibble
 Read Major/Minor report
 }
 \examples{
+\dontrun{
 sds <- read_major_report("/tmp/SDS_Student_MajorsMinor_Rpt_05 14 2019.pdf")
 nrow(sds)
+}
 }
