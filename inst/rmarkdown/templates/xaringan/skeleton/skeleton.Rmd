@@ -14,8 +14,9 @@ date: |
   2019-07-31<br/>
   `r sds::img_logo(width = 64)`
 output:
-  sds::xaringan:
+  sds::moon_reader:
     lib_dir: libs
+    css: xaringan-themer.css
     nature:
       highlightStyle: github
       highlightLines: true
@@ -25,6 +26,24 @@ output:
 ```{r setup, include=FALSE}
 options(htmltools.dir.version = FALSE)
 ```
+
+```{r xaringan-themer, include=FALSE}
+library(xaringanthemer)
+duo(
+  primary_color = "#002855",
+  secondary_color = "#F2A900",
+  text_font_google = google_font("EB Garamond"),
+  header_font_google = google_font("EB Garamond"),
+  code_font_family = "Fira Code",
+  code_font_url    = "https://cdn.rawgit.com/tonsky/FiraCode/1.204/distr/fira_code.css",
+  extra_css = list(".title-slide" = list(
+    "background-image" = "url(https://www.smith.edu/sites/all/themes/smith_edu/images/logo-footer-2x.png);", 
+    "background-position" = "3% 97%;",
+    "background-size" = "200px;"
+  ))
+)
+```
+
 
 class: center, middle
 # Statistical & Data Sciences
@@ -41,35 +60,8 @@ class: center, middle
 .pull-right[
 
 ```{r sds-hex-logo}
-knitr::include_graphics(system.file('sds_hex.png', package = 'sds'))
+sds::img_logo(width = 320)
 ```
-
-]
-
----
-# SDS Tenure-track Faculty
-
-.pull-left[
-
-100% in SDS
-
-![:scalewidth 33%](https://www.smith.edu/sites/default/files/styles/img-faculty-detail/public/media/Faculty/ben_baumer_crop.jpg) Ben Baumer
-
-![:scalewidth 33%](https://www.smith.edu/sites/default/files/styles/img-faculty-detail/public/media/Faculty/miles_ott_crop.jpg) Miles Ott
-
-![:scalewidth 33%](https://www.smith.edu/sites/default/files/styles/img-faculty-detail/public/media/Faculty/albert_kim_crop.jpg) Albert Y. Kim
-
-] 
-
-.pull-right[
-
-50% in SDS
-
-![:scalewidth 33%](http://ds.cs.umass.edu/sites/default/files/styles/yellow_pages/public/Photos/Profiles/halvorsen_130.jpg) Katherine Halvorsen (MTH)
-
-![:scalewidth 33%](https://www.smith.edu/sites/default/files/styles/img-faculty-detail/public/media/Faculty/randi_garcia_crop.jpg) Randi Garcia (PSY)
-
-![:scalewidth 33%](https://www.smith.edu/sites/default/files/styles/img-faculty-detail/public/media/Faculty/katherine_kinnaird.jpg) Katherine Kinnaird (CSC)
 
 ]
 
@@ -77,8 +69,6 @@ knitr::include_graphics(system.file('sds_hex.png', package = 'sds'))
 class: center, middle
 # Thank you!
 
-<i class="fa fa-envelope" aria-hidden="true"></i> [bbaumer@smith.edu](mailto:bbaumer@smith.edu)
-
-<i class="fa fa-twitter" style="font-size:36px"></i> [BaumerBen](http://www.github.com/BaumerBen)
-
-<i class="fa fa-github" style="font-size:36px"></i> [beanumber](http://www.github.com/beanumber)
+`r icon::fa("envelope")` [bbaumer@smith.edu](mailto:bbaumer@smith.edu) |
+`r icon::fa("twitter")` [BaumerBen](http://www.github.com/BaumerBen) |
+`r icon::fa("twitter")` [beanumber](http://www.github.com/beanumber)

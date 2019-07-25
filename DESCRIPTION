@@ -1,6 +1,6 @@
 Package: sds
 Title: Templates and things for SDS Program
-Version: 0.0.1.9008
+Version: 0.0.1.9009
 Authors@R: c(
     person("Ben", "Baumer", email = "bbaumer@smith.edu", role = c("aut", "cre")),
     person("Miles", "Ott", role = "ctb"))
@@ -30,8 +30,9 @@ Imports:
     tibble,
     tidyr,
     xaringan,
+    xaringanthemer,
     xml2
-Remotes: ropenscilabs/icon
+Remotes: ropenscilabs/icon, gadenbuie/xaringanthemer
 License: CC0
 Encoding: UTF-8
 LazyData: true
