@@ -45,10 +45,18 @@ ggplot(mpg, aes(y = hwy, x = reorder(model, hwy), fill = hwy)) +
 
 
 
-## Print hex logo!
+## Hex logo!
+
+You can write the logo to a file:
 
 ```{r hex-logo, eval=FALSE}
 hex_logo(file = "inst/sds_hex.png")
+```
+
+Or include it directly in a Markdown document:
+
+```{r hex-logo-img}
+img_logo(width = 64)
 ```
 
 ## Write a letter on official SDS letterhead

@@ -19,10 +19,10 @@ hex_logo <- function(file = "sds_hex.png", ...) {
   grDevices::png(file = file, width = 480, height = 480, units = "px",
                  res = 300, family = "Courier", bg = "transparent", ...)
 
-  par(mar = c(0,0,0,0))
+  par(mar = c(0,0,0,0), bty = "n")
 
   # setting the plotting area
-  plot(NULL, xlim = c(-1,1), ylim = c(-1,1))
+  plot(NULL, xlim = c(-1,1), ylim = c(-1,1), axes = FALSE)
 
   # drawing the border
   x <- c(sqrt(.75), 0, -(sqrt(.75)), -(sqrt(.75)), 0, sqrt(.75))
