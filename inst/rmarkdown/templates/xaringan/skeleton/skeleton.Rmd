@@ -1,8 +1,18 @@
 ---
 title: "Data Science at Smith"
 subtitle: "xaringan style"
-author: "&#128435;</br>Ben Baumer</br>[Statistical & Data Sciences](http://www.smith.edu/sds)"
-date: "2019-03-01"
+author: |
+  Ben Baumer<br/>
+  <span style = 'font-size: 70%;'>
+  [Statistical & Data Sciences](http://www.smith.edu/sds), Smith College<br/>
+  `r icon::fa("envelope")` &nbsp;[bbaumer@smith.edu](mailto:bbaumer@smith.edu) | 
+  `r icon::fa("twitter")` @[BaumerBen](http://www.twitter.com/BaumerBen) |
+  `r icon::fa("github")` [beanumber](http://www.github.com/beanumber)
+  </span>
+date: |
+  JSM 2019<br/>
+  2019-07-31<br/>
+  `r sds::img_logo(width = 64)`
 output:
   sds::xaringan:
     lib_dir: libs

@@ -2,6 +2,7 @@
 % Please edit documentation in R/markdown.R
 \name{xaringan}
 \alias{xaringan}
+\alias{html_dependency_smith}
 \title{Smith xaringan slides (HTML)}
 \source{
 \url{https://www.smith.edu/about-smith/college-relations/visual-identity-program}
@@ -11,6 +12,8 @@ xaringan(css = c("default", "default-fonts"), self_contained = FALSE,
   seal = TRUE, yolo = FALSE,
   chakra = "https://remarkjs.com/downloads/remark-latest.min.js",
   nature = list(), ...)
+
+html_dependency_smith()
 }
 \arguments{
 \item{css}{A vector of CSS file paths. Two default CSS files
@@ -61,6 +64,9 @@ for \code{moon_reader()}, arguments passed to
 }
 \description{
 Write a presentation in R Markdown using Smith College SDS theming
+}
+\details{
+This function is a thin wrapper around \code{\link[xaringan]{moon_reader}}
 }
 \examples{
 \dontrun{

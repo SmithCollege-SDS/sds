@@ -209,6 +209,7 @@ memo <- function(fig_width = 10,
 
 #' Smith xaringan slides (HTML)
 #' @description Write a presentation in R Markdown using Smith College SDS theming
+#' @details This function is a thin wrapper around \code{\link[xaringan]{moon_reader}}
 #' @inheritParams xaringan::moon_reader
 #' @export
 #' @seealso \code{\link[xaringan]{moon_reader}}
@@ -231,14 +232,29 @@ xaringan <- function(css = c("default", "default-fonts"),
     "default",
     "default-fonts",
     system.file("rmarkdown", "templates", "xaringan", "resources", "smith.css", package = "sds"),
-    system.file("rmarkdown", "templates", "xaringan", "resources", "smith-fonts.css", package = "sds"),
-    "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    system.file("rmarkdown", "templates", "xaringan", "resources", "smith-fonts.css", package = "sds")
+    # better to use icon::fa(), I think
+    # "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/font-awesome.min.css"
   )
   smith_nature <- list(beforeInit = system.file("rmarkdown", "templates", "xaringan", "resources", "macros.js", package = "sds"))
   # call the base moon_reader format with the appropriate options
+  # need to figure out how to include dependencies
+  # html_dependency_smith()
   xaringan::moon_reader(
     css = smith_css, self_contained, seal, yolo, chakra,
     nature = append(smith_nature, nature), ...)
+
 }
 
+#' @rdname xaringan
+#' @export
+
+html_dependency_smith <- function() {
+  htmltools::htmlDependency(
+    name = "smith",
+    version = "1.0",
+    src = system.file("rmarkdown", "templates", "xaringan", "resources", package = "sds"),
+    script = "macro.js",
+    stylesheet = c("smith.css", "smith-fonts.css"))
+}
 
