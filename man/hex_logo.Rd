@@ -2,9 +2,12 @@
 % Please edit documentation in R/hex_logo.R
 \name{hex_logo}
 \alias{hex_logo}
+\alias{img_logo}
 \title{Print the Smith SDS hex logo}
 \usage{
 hex_logo(file = "sds_hex.png", ...)
+
+img_logo(...)
 }
 \arguments{
 \item{file}{file path}
@@ -16,6 +19,8 @@ Print the Smith SDS hex logo
 }
 \examples{
 hex_logo()
+img_logo()
+img_logo(width = 64)
 }
 \author{
 Miles Ott

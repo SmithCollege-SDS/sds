@@ -12,44 +12,80 @@
 
 hex_logo <- function(file = "sds_hex.png", ...) {
 
-  grDevices::png(file = file, width = 480, height = 480, units = "px", res = 300, family = "Courier", ...)
+  grDevices::png(file = file, width = 480, height = 480, units = "px",
+                 res = 300, family = "Courier", bg = "transparent", ...)
 
-  par(mar=c(0,0,0,0))
+  par(mar = c(0,0,0,0))
 
   # setting the plotting area
-  plot(NULL, xlim=c(-1,1), ylim=c(-1,1))
+  plot(NULL, xlim = c(-1,1), ylim = c(-1,1))
 
-  #drawing the border
-  x<-c(sqrt(.75), 0, -(sqrt(.75)), -(sqrt(.75)), 0, sqrt(.75))
-  y<-c(.5, 1, .5, -.5, -1, -.5)
-  polygon(x,y, lwd=4, border="#002855")
+  # drawing the border
+  x <- c(sqrt(.75), 0, -(sqrt(.75)), -(sqrt(.75)), 0, sqrt(.75))
+  y <- c(.5, 1, .5, -.5, -1, -.5)
+  polygon(x, y, lwd = 4, col = "white", border = "#002855")
 
   # fill color
-  polygon(x=x*.93, y=y*.93, col="#F2A900", border="white")
+  polygon(x = x*.93, y = y*.93, col = "#F2A900", border = "white")
 
-  #plotting the scatterplot and regression line
+  # plotting the scatterplot and regression line
   set.seed(3)
-  x.var<-c(rnorm(20, 0, .2), -1, 1)
-  y.var<-x.var+rnorm(22, 0, .25)
-  points(x.var, y.var, col="white", pch=16, cex=.5)
-  segments(x0=-.656, y0=-.656, x1=.656, y1=.656, lwd=1.5, col="white")
+  points <- tibble::tibble(
+    x.var = c(rnorm(20, 0, .2), -1, 1),
+    y.var = x.var + rnorm(22, 0, .25),
+    r = sqrt(x.var^2 + y.var^2),
+    inside = r < 1
+  )
+  fit <- lm(y.var ~ x.var, data = points)
 
-  #plotting the prediction intervals
-  fit <- lm(y.var ~ x.var)
-  pred.1 <- predict(fit,interval="prediction", newdata=data.frame(seq(-1, 1, length=32)))
-  lower.b<-pred.1[,2][order(x.var)]
-  upper.b<-pred.1[,3][order(x.var)]
-  lines(x.var[order(x.var)], lower.b, lty=2, lwd=1.5, col="white")
-  lines(x.var[order(x.var)], upper.b, lty=2, lwd=1.5, col="white")
+  inside <- points %>%
+    dplyr::filter(inside)
+  points(inside$x.var, y = inside$y.var, col = "white", pch = 16, cex = .5)
+  edge <- 0.6
+  segments(x0 = -edge, y0 = -edge, x1 = edge, y1 = edge, lwd = 1.5, col = "white")
 
-  #replotting the border
-  polygon(x,y, lwd=4, border="#002855", col=NULL)
+  # plotting the prediction intervals
+  grid <- data.frame(x.var = seq(-1, 1, length = nrow(points)))
+  pred <- predict(
+    fit, interval = "prediction",
+    newdata = grid
+  ) %>%
+    tibble::as_tibble() %>%
+    mutate(x.var = grid$x.var,
+           r_lwr = sqrt(x.var^2 + lwr^2),
+           r_upr = sqrt(x.var^2 + upr^2),
+           inside_lwr = r_lwr < 0.9,
+           inside_upr = r_upr < 0.9) %>%
+    arrange(x.var)
 
-  #text
-  text(x=0, y=.45, "Smith College", col=	"#002855", cex=.78, font=2)
-  text(x=0, y=0, "SDS", col="#002855", cex=3.4, font=2)
-  text(x=0, y=-.45, "Statistical &", col="#002855", cex=.5, font=2)
-  text(x=0, y=-.58, "Data Sciences", col="#002855", cex=.5, font=2)
+  lwr <- pred %>%
+    filter(inside_lwr)
+  lines(lwr$x.var, lwr$lwr, lty = 2, lwd = 1.5, col = "white")
+
+  upr <- pred %>%
+    filter(inside_upr)
+  lines(upr$x.var, upr$upr, lty = 2, lwd = 1.5, col = "white")
+
+  # replotting the border
+  polygon(x, y, lwd = 4, border = "#002855", col = NULL)
+
+  # text
+  text(x = 0, y = .45, "Smith College", col = "#002855", cex = .78, font = 2)
+  text(x = 0, y = 0, "SDS", col = "#002855", cex = 3.4, font = 2)
+  text(x = 0, y = -.45, "Statistical &", col = "#002855", cex = .5, font = 2)
+  text(x = 0, y = -.58, "Data Sciences", col = "#002855", cex = .5, font = 2)
 
   grDevices::dev.off()
 }
+
+#' @rdname hex_logo
+#' @export
+#' @examples
+#' img_logo()
+#' img_logo(width = 64)
+
+img_logo <- function(...) {
+  uri <- knitr::image_uri(system.file('sds_hex.png', package = 'sds'))
+  htmltools::img(src = uri, ...)
+}
+
