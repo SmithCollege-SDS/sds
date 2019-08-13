@@ -2,6 +2,8 @@
 % Please edit documentation in R/markdown.R
 \name{moon_reader}
 \alias{moon_reader}
+\alias{mono_light_smith}
+\alias{duo_smith}
 \title{Smith xaringan slides (HTML)}
 \source{
 \url{https://www.smith.edu/about-smith/college-relations/visual-identity-program}
@@ -11,6 +13,10 @@ moon_reader(css = c("default", "default-fonts"),
   self_contained = FALSE, seal = TRUE, yolo = FALSE,
   chakra = "https://remarkjs.com/downloads/remark-latest.min.js",
   nature = list(), ...)
+
+mono_light_smith(...)
+
+duo_smith(...)
 }
 \arguments{
 \item{css}{A vector of CSS file paths. Two default CSS files
@@ -75,4 +81,8 @@ rmarkdown::render("input.Rmd", "sds::xaringan")
 }
 \seealso{
 \code{\link[xaringan]{moon_reader}}
+
+\code{\link[xaringanthemer]{mono_light}}
+
+\code{\link[xaringanthemer]{duo}}
 }

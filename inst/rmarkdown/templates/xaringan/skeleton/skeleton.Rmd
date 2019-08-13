@@ -28,19 +28,8 @@ options(htmltools.dir.version = FALSE)
 ```
 
 ```{r xaringan-themer, include=FALSE}
-library(xaringanthemer)
-duo(
-  primary_color = "#002855",
-  secondary_color = "#F2A900",
-  text_font_google = google_font("EB Garamond"),
-  header_font_google = google_font("EB Garamond"),
-  code_font_family = "Fira Code",
-  code_font_url    = "https://cdn.rawgit.com/tonsky/FiraCode/1.204/distr/fira_code.css",
-  title_slide_background_image = "none",
-  background_image = "https://www.smith.edu/sites/all/themes/smith_edu/images/logo-footer-2x.png",
-  background_position = "3% 97%",
-  background_size = "200px"
-)
+# sds::duo_smith()
+sds::mono_light_smith()
 ```
 
 

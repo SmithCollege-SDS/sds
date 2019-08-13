@@ -237,3 +237,42 @@ moon_reader <- function(css = c("default", "default-fonts"),
 
 }
 
+#' @rdname moon_reader
+#' @export
+#' @seealso \code{\link[xaringanthemer]{mono_light}}
+
+mono_light_smith <- function(...) {
+  xaringanthemer::mono_light(
+    base_color = smith_pal_categorical(2)[1],
+    link_color = smith_pal_categorical(2)[2],
+    text_font_google = xaringanthemer::google_font("EB Garamond"),
+    header_font_google = xaringanthemer::google_font("EB Garamond"),
+    code_font_family = "Fira Code",
+    code_font_url    = "https://cdn.rawgit.com/tonsky/FiraCode/1.204/distr/fira_code.css",
+    title_slide_background_image = "none",
+    background_image = "https://www.smith.edu/sites/all/themes/smith_edu/images/logo-footer-2x.png",
+    background_position = "3% 97%",
+    background_size = "200px",
+    ... = ...
+  )
+}
+
+#' @rdname moon_reader
+#' @export
+#' @seealso \code{\link[xaringanthemer]{duo}}
+
+duo_smith <- function(...) {
+  xaringanthemer::duo(
+    primary_color = "#002855",
+    secondary_color = "#F2A900",
+    text_font_google = xaringanthemer::google_font("EB Garamond"),
+    header_font_google = xaringanthemer::google_font("EB Garamond"),
+    code_font_family = "Fira Code",
+    code_font_url    = "https://cdn.rawgit.com/tonsky/FiraCode/1.204/distr/fira_code.css",
+    title_slide_background_image = "none",
+    background_image = "https://www.smith.edu/sites/all/themes/smith_edu/images/logo-footer-2x.png",
+    background_position = "3% 97%",
+    background_size = "200px",
+    ... = ...
+  )
+}
