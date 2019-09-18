@@ -255,6 +255,12 @@ mono_light_smith <- function(...) {
     background_size = "200px",
     ... = ...
   )
+  xaringanthemer::write_extra_css(
+    list(".img-half img" = list(width = "50%"),
+         ".img-third img" = list(width = "33%"),
+         ".img-quarter img" = list(width = "25%")
+    )
+  )
 }
 
 #' @rdname moon_reader
@@ -274,5 +280,11 @@ duo_smith <- function(...) {
     background_position = "3% 97%",
     background_size = "200px",
     ... = ...
+  )
+  xaringanthemer::write_extra_css(
+    list(".img-half img" = list(width = "50%"),
+         ".img-third img" = list(width = "33%"),
+         ".img-quarter img" = list(width = "25%")
+    )
   )
 }
