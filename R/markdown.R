@@ -237,6 +237,17 @@ moon_reader <- function(css = c("default", "default-fonts"),
 
 }
 
+smith_css <- list(
+  ".img-half img" = list(width = "49%"),
+  ".img-third img" = list(width = "33%"),
+  ".img-quarter img" = list(width = "24%"),
+  ".tri-left" = list(width = "32%", float = "left"),
+  ".tri-middle" = list(width = "32%", float = "left",
+                       "margin-left" = "2%", "margin-right" = "2%"),
+  ".tri-right" = list(width = "32%", float = "right")
+)
+globalVariables("smith_css")
+
 #' @rdname moon_reader
 #' @export
 #' @seealso \code{\link[xaringanthemer]{mono_light}}
@@ -255,12 +266,7 @@ mono_light_smith <- function(...) {
     background_size = "200px",
     ... = ...
   )
-  xaringanthemer::write_extra_css(
-    list(".img-half img" = list(width = "50%"),
-         ".img-third img" = list(width = "33%"),
-         ".img-quarter img" = list(width = "25%")
-    )
-  )
+  xaringanthemer::write_extra_css(smith_css)
 }
 
 #' @rdname moon_reader
@@ -281,10 +287,5 @@ duo_smith <- function(...) {
     background_size = "200px",
     ... = ...
   )
-  xaringanthemer::write_extra_css(
-    list(".img-half img" = list(width = "50%"),
-         ".img-third img" = list(width = "33%"),
-         ".img-quarter img" = list(width = "25%")
-    )
-  )
+  xaringanthemer::write_extra_css(smith_css)
 }
