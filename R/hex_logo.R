@@ -3,6 +3,7 @@ globalVariables(c("inside_lwr", "inside_upr", "profile.email",
                   "user", "x.var", "y.var"))
 
 #' Print the Smith SDS hex logo
+#' @importFrom dplyr %>% mutate arrange filter
 #' @importFrom graphics lines par plot points polygon segments text
 #' @importFrom stats lm predict rnorm
 #' @importFrom grDevices png dev.off
@@ -55,19 +56,19 @@ hex_logo <- function(file = "sds_hex.png", ...) {
     newdata = grid
   ) %>%
     tibble::as_tibble() %>%
-    mutate(x.var = grid$x.var,
-           r_lwr = sqrt(x.var^2 + lwr^2),
-           r_upr = sqrt(x.var^2 + upr^2),
-           inside_lwr = r_lwr < 0.9,
-           inside_upr = r_upr < 0.9) %>%
-    arrange(x.var)
+    dplyr::mutate(x.var = grid$x.var,
+                  r_lwr = sqrt(x.var^2 + lwr^2),
+                  r_upr = sqrt(x.var^2 + upr^2),
+                  inside_lwr = r_lwr < 0.9,
+                  inside_upr = r_upr < 0.9) %>%
+    dplyr::arrange(x.var)
 
   lwr <- pred %>%
-    filter(inside_lwr)
+    dplyr::filter(inside_lwr)
   lines(lwr$x.var, lwr$lwr, lty = 2, lwd = 1.5, col = "white")
 
   upr <- pred %>%
-    filter(inside_upr)
+    dplyr::filter(inside_upr)
   lines(upr$x.var, upr$upr, lty = 2, lwd = 1.5, col = "white")
 
   # replotting the border
