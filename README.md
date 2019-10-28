@@ -1,4 +1,10 @@
 
+<!-- badges: start -->
+
+[![Travis build
+status](https://travis-ci.org/SmithCollege-SDS/sds.svg?branch=master)](https://travis-ci.org/SmithCollege-SDS/sds)
+<!-- badges: end -->
+
 # sds <img src='man/figures/logo.png' align="right" height="120" />
 
 R package providing R Markdown templates for SDS
