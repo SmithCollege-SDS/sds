@@ -21,17 +21,6 @@ devtools::install_github("SmithCollege-SDS/sds")
 library(sds)
 ```
 
-## Get class list
-
-```{r, eval=FALSE}
-library(tidyverse)
-# download class list from BannerWeb
-file <- fs::path("")
-docs <- c("~/Dropbox/git/sds192/student_info/s18/ClassList_30661.xls") %>%
-  read_banner_course() %>%
-  glimpse()
-```
-
 ## Add Smith theming to a `ggplot`
 
 ```{r smith-theme}
