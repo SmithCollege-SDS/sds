@@ -2,3 +2,16 @@
 
 language: R
 cache: packages
+
+# Add all CRAN versions of package you used here:
+r_packages:
+  - tidyverse
+  - htmltools
+  - knitr
+  - rmarkdown
+  - xaringan
+
+# Add all GitHub versions of packages you used here:
+r_github_packages:
+  - gadenbuie/xaringanthemer
+  - ropenscilabs/icon
