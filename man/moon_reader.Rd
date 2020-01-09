@@ -9,10 +9,15 @@
 \url{https://www.smith.edu/about-smith/college-relations/visual-identity-program}
 }
 \usage{
-moon_reader(css = c("default", "default-fonts"),
-  self_contained = FALSE, seal = TRUE, yolo = FALSE,
+moon_reader(
+  css = c("default", "default-fonts"),
+  self_contained = FALSE,
+  seal = TRUE,
+  yolo = FALSE,
   chakra = "https://remarkjs.com/downloads/remark-latest.min.js",
-  nature = list(), ...)
+  nature = list(),
+  ...
+)
 
 mono_light_smith(...)
 
@@ -35,8 +40,8 @@ metadata of the R Markdown document (if \code{FALSE}, you should write the
 title slide by yourself).}
 
 \item{yolo}{Whether to insert the
-\href{{https://kbroman.wordpress.com/2014/08/28/the-mustache-photo/}{Mustache
- Karl (TM)}} randomly in the slides. \code{TRUE} means insert his picture on
+\href{https://kbroman.wordpress.com/2014/08/28/the-mustache-photo/}{Mustache
+ Karl (TM)} randomly in the slides. \code{TRUE} means insert his picture on
 one slide, and if you want him to be on multiple slides, set \code{yolo} to
 a positive integer or a percentage (e.g. 0.3 means 30\% of your slides will
 be the Mustache Karl). Alternatively, \code{yolo} can also be a list of the

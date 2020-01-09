@@ -7,9 +7,18 @@
 \url{https://www.smith.edu/about-smith/college-relations/visual-identity-program}
 }
 \usage{
-letter(fig_width = 10, fig_height = 5, fig_crop = TRUE,
-  dev = "pdf", highlight = "default", keep_tex = FALSE,
-  includes = NULL, md_extensions = NULL, pandoc_args = NULL, ...)
+letter(
+  fig_width = 10,
+  fig_height = 5,
+  fig_crop = TRUE,
+  dev = "pdf",
+  highlight = "default",
+  keep_tex = FALSE,
+  includes = NULL,
+  md_extensions = NULL,
+  pandoc_args = NULL,
+  ...
+)
 }
 \arguments{
 \item{fig_width}{Default width (in inches) for figures}
@@ -28,10 +37,10 @@ letter(fig_width = 10, fig_height = 5, fig_crop = TRUE,
 \item{keep_tex}{Keep the intermediate tex file used in the conversion to PDF}
 
 \item{includes}{Named list of additional content to include within the
-document (typically created using the \code{\link{includes}} function).}
+document (typically created using the \code{\link[rmarkdown]{includes}} function).}
 
 \item{md_extensions}{Markdown extensions to be added or removed from the
-default definition or R Markdown. See the \code{\link{rmarkdown_format}} for
+default definition or R Markdown. See the \code{\link[rmarkdown]{rmarkdown_format}} for
 additional details.}
 
 \item{pandoc_args}{Additional command line options to pass to pandoc}
