@@ -18,7 +18,9 @@ img_logo(...)
 Print the Smith SDS hex logo
 }
 \examples{
+\dontrun{
 hex_logo()
+}
 img_logo()
 img_logo(width = 64)
 }

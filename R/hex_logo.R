@@ -12,7 +12,9 @@ globalVariables(c("inside_lwr", "inside_upr", "profile.email",
 #' @export
 #' @author Miles Ott
 #' @examples
+#' \dontrun{
 #' hex_logo()
+#' }
 
 
 hex_logo <- function(file = "sds_hex.png", ...) {
@@ -90,7 +92,7 @@ hex_logo <- function(file = "sds_hex.png", ...) {
 #' img_logo(width = 64)
 
 img_logo <- function(...) {
-  uri <- knitr::image_uri(system.file('sds_hex.png', package = 'sds'))
+  uri <- knitr::image_uri(system.file('help', 'figures', 'logo.png', package = 'sds'))
   htmltools::img(src = uri, ...)
 }
 

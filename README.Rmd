@@ -43,7 +43,7 @@ ggplot(mpg, aes(y = hwy, x = reorder(model, hwy), fill = hwy)) +
 You can write the logo to a file:
 
 ```{r hex-logo, eval=FALSE}
-hex_logo(file = "inst/sds_hex.png")
+hex_logo(file = "man/figures/logo.png")
 ```
 
 Or include it directly in a Markdown document:

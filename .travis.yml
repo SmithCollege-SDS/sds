@@ -11,8 +11,8 @@ r_packages:
   - knitr
   - rmarkdown
   - xaringan
+  - xaringanthemer
 
 # Add all GitHub versions of packages you used here:
 r_github_packages:
-  - gadenbuie/xaringanthemer
   - ropenscilabs/icon

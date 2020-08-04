@@ -1,8 +1,10 @@
 Package: sds
 Title: Templates and things for SDS Program
-Version: 0.0.2.9002
+Version: 0.0.2.9003
 Authors@R: c(
-    person("Ben", "Baumer", email = "bbaumer@smith.edu", role = c("aut", "cre")),
+    person("Benjamin S.", "Baumer", email = "bbaumer@smith.edu", 
+            role = c("aut", "cre"),
+            comment = c(ORCID = "0000-0002-3279-0516")),
     person("Miles", "Ott", role = "ctb"))
 Description: R Markdown's templating ability allows one to create templates for
     LaTeX and Markdown documents. This package contains templates for creating
