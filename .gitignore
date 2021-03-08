@@ -1,3 +1,9 @@
 .Rproj.user
 .Rhistory
 .RData
+
+# template artifacts
+*.log
+skeleton.html
+skeleton.pdf
+xaringan-themer.css
