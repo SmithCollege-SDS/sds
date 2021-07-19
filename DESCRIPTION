@@ -1,6 +1,6 @@
 Package: sds
 Title: Templates and things for SDS Program
-Version: 0.0.2.9004
+Version: 0.0.2.9005
 Authors@R: c(
     person("Benjamin S.", "Baumer", email = "bbaumer@smith.edu", 
             role = c("aut", "cre"),
@@ -15,16 +15,15 @@ Depends:
     R (>= 3.0.0)
 Imports:
     dplyr,
+    fontawesome,
     fs,
     ggplot2,
     htmltools,
-    icons,
     knitr,
     rmarkdown,
     tibble,
     xaringan,
     xaringanthemer
-Remotes: mitchelloharawild/icons
 License: CC0
 Encoding: UTF-8
 LazyData: true

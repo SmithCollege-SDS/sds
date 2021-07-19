@@ -5,9 +5,9 @@ author: |
   Ben Baumer<br/>
   <span style = 'font-size: 70%;'>
   [Statistical & Data Sciences](http://www.smith.edu/sds), Smith College<br/>
-  `r icons::fontawesome("envelope")` &nbsp;[bbaumer@smith.edu](mailto:bbaumer@smith.edu) | 
-  `r icons::fontawesome("twitter")` @[BaumerBen](http://www.twitter.com/BaumerBen) |
-  `r icons::fontawesome("github")` [beanumber](http://www.github.com/beanumber)
+  `r fontawesome::fa("envelope")` &nbsp;[bbaumer@smith.edu](mailto:bbaumer@smith.edu) | 
+  `r fontawesome::fa("twitter")` @[BaumerBen](http://www.twitter.com/BaumerBen) |
+  `r fontawesome::fa("github")` [beanumber](http://www.github.com/beanumber)
   </span>
 date: |
   JSM 2019<br/>
@@ -57,6 +57,6 @@ sds::img_logo(width = 320)
 class: center, middle
 # Thank you!
 
-`r icons::fontawesome("envelope")` [bbaumer@smith.edu](mailto:bbaumer@smith.edu) |
-`r icons::fontawesome("twitter")` [BaumerBen](http://www.github.com/BaumerBen) |
-`r icons::fontawesome("twitter")` [beanumber](http://www.github.com/beanumber)
+`r fontawesome::fa("envelope")` [bbaumer@smith.edu](mailto:bbaumer@smith.edu) |
+`r fontawesome::fa("twitter")` [BaumerBen](http://www.github.com/BaumerBen) |
+`r fontawesome::fa("twitter")` [beanumber](http://www.github.com/beanumber)
