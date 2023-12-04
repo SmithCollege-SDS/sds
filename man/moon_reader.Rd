@@ -77,10 +77,6 @@ set \code{countdown} to \code{TRUE} to include a countdown equal to
 \code{autoplay}. To alter the set of classes applied to the title slide,
 you can optionally set \code{titleSlideClass} to a vector of classes; the
 default is \code{c("center", "middle", "inverse")}.}
-
-\item{...}{For \code{tsukuyomi()}, arguments passed to
-\code{moon_reader()}; for \code{moon_reader()}, arguments passed to
-\code{rmarkdown::\link{html_document}()}.}
 }
 \description{
 Write a presentation in R Markdown using Smith College SDS theming
