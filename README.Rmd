@@ -5,7 +5,7 @@ output:
 ---
 
 <!-- badges: start -->
-[![Travis build status](https://travis-ci.org/SmithCollege-SDS/sds.svg?branch=master)](https://travis-ci.org/SmithCollege-SDS/sds)
+[![R-CMD-check](https://github.com/SmithCollege-SDS/sds/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/SmithCollege-SDS/sds/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 # sds <img src='man/figures/logo.png' align="right" height="120" />
@@ -15,8 +15,8 @@ R package providing R Markdown templates for SDS
 ## Install
 
 ```{r, eval=FALSE}
-# install.packages("devtools")
-devtools::install_github("SmithCollege-SDS/sds")
+# install.packages("remotes")
+remotes::install_github("SmithCollege-SDS/sds")
 ```
 
 ## Load

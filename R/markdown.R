@@ -209,10 +209,11 @@ memo <- function(fig_width = 10,
 
 #' Smith xaringan slides (HTML)
 #' @description Write a presentation in R Markdown using Smith College SDS theming
-#' @details This function is a thin wrapper around \code{\link[xaringan]{moon_reader}}
+#' @details This function is a thin wrapper around [xaringan::moon_reader()]
 #' @inheritParams xaringan::moon_reader
+#' @param ... arguments passed to [xaringan::moon_reader()]
 #' @export
-#' @seealso \code{\link[xaringan]{moon_reader}}
+#' @seealso [xaringan::moon_reader()]
 #' @source \url{https://www.smith.edu/about-smith/college-relations/visual-identity-program}
 #' @examples
 #' \dontrun{
